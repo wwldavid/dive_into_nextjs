@@ -1,6 +1,7 @@
 import { addTodo, getTodos } from "@/actions";
-import ClientButton from "@/components/client-button";
-import SubmitButton from "@/components/submit-button";
+
+
+import SubmitForm from "@/components/submit-form";
 
 
 
@@ -10,13 +11,7 @@ export default async function Page() {
 
   return (
     <div className="p-10">
-      <div className="flex">
-          <form action={addTodo}>
-             <input type="text" name="todo" className="border p-2" />
-             <SubmitButton/>
-          </form>
-          <ClientButton> Icecream </ClientButton>
-      </div>
+      <SubmitForm/>
     
       <ul className="leading-8 mt-4">
          {

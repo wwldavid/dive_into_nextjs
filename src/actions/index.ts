@@ -8,7 +8,7 @@ export async function getTodos(){
   return data
 }
 
-export async function addTodo(formData: FormData){
+export async function addTodo(prevState:{message: string },formData: FormData){
   const todo = formData.get('todo') as string
   data.push(todo)
  
@@ -16,6 +16,9 @@ export async function addTodo(formData: FormData){
   
   revalidatePath('/')
   // revalidateTag('xxx')
-  
+  return {
+    ...prevState,
+    message: `add ${todo} success!`
+  }
 
 }
