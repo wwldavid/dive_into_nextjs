@@ -1,11 +1,9 @@
-
 import React from 'react'
-import '@/db'
 
 export default function page() {
   return (
-    <div>
-      Home
-    </div>
+    <form>
+        <h3>Create a Snippet</h3>
+    </form>
   )
 }
