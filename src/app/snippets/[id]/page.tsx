@@ -1,4 +1,5 @@
 
+import SnippetDelButton from '@/components/snippet-del-button'
 import { db } from '@/db'
 import { sleep } from '@/utils'
 import Link from 'next/link'
@@ -23,7 +24,7 @@ export default async function page(props: SnippetShowPageProps ) {
       <h1 className='font-bold text-lg'>{snippet.title}</h1>
       <div className='flex gap-4'>
         <Link className='p-2 border border-teal-500 rounded' href="/snippets/1/edit" >Edit</Link>
-        <button className='p-2 border border-teal-500 rounded' >Delete</button>
+        <SnippetDelButton id={+id} />
       </div>
     </div>
     <pre className='p-3 border border-teal-500 rounded bg-gray-200 mt-6'>
