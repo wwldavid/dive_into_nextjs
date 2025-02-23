@@ -1,4 +1,5 @@
 
+import { deleteSnippet } from '@/actions'
 import SnippetDelButton from '@/components/snippet-del-button'
 import { db } from '@/db'
 import { sleep } from '@/utils'
@@ -14,6 +15,9 @@ export default async function page(props: SnippetShowPageProps ) {
   const snippet = await db.snippet.findFirst({
     where: {id: parseInt(id)},
   })
+
+   const deleteSnippetWithId = deleteSnippet.bind(null, +id)
+
   if(!snippet){
     // return <div>Not Found ... </div>
     return notFound()
@@ -24,7 +28,10 @@ export default async function page(props: SnippetShowPageProps ) {
       <h1 className='font-bold text-lg'>{snippet.title}</h1>
       <div className='flex gap-4'>
         <Link className='p-2 border border-teal-500 rounded' href="/snippets/1/edit" >Edit</Link>
-        <SnippetDelButton id={+id} />
+        {/* <SnippetDelButton id={+id} /> */}
+        <form action={deleteSnippetWithId}>
+           <button className='p-2 border border-teal-500 rounded' >Delete</button>
+        </form>
       </div>
     </div>
     <pre className='p-3 border border-teal-500 rounded bg-gray-200 mt-6'>
