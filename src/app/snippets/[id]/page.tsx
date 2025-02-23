@@ -10,7 +10,7 @@ import React from 'react'
 interface SnippetShowPageProps { params: { id: string}}
 
 export default async function page(props: SnippetShowPageProps ) {
-  await sleep(3000);
+  // await sleep(3000);
   const id = props.params.id
   const snippet = await db.snippet.findFirst({
     where: {id: parseInt(id)},
@@ -39,4 +39,11 @@ export default async function page(props: SnippetShowPageProps ) {
     </pre>
     </>
   )
+}
+
+export async function generateStaticParams(){
+  const snippets = await db.snippet.findMany();
+  return snippets.map((snippet) => ({
+      id: snippet.id.toString()
+  }))
 }
