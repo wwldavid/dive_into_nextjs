@@ -10,3 +10,7 @@ Prisma
    npx prisma db push
 5. generate Prisma Client according to Schema for operating database
    npx prisma generate
+
+Monaco
+
+6. pnpm install @monaco-editor/react

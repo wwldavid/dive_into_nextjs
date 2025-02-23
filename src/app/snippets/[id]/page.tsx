@@ -1,6 +1,6 @@
 
 import { deleteSnippet } from '@/actions'
-import SnippetDelButton from '@/components/snippet-del-button'
+// import SnippetDelButton from '@/components/snippet-del-button'
 import { db } from '@/db'
 import { sleep } from '@/utils'
 import Link from 'next/link'
@@ -27,7 +27,7 @@ export default async function page(props: SnippetShowPageProps ) {
      <div className='flex items-center justify-between mt-10'>
       <h1 className='font-bold text-lg'>{snippet.title}</h1>
       <div className='flex gap-4'>
-        <Link className='p-2 border border-teal-500 rounded' href="/snippets/1/edit" >Edit</Link>
+        <Link className='p-2 border border-teal-500 rounded' href={`/snippets/${id}/edit`} >Edit</Link>
         {/* <SnippetDelButton id={+id} /> */}
         <form action={deleteSnippetWithId}>
            <button className='p-2 border border-teal-500 rounded' >Delete</button>
