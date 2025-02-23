@@ -10,3 +10,12 @@ export async function deleteSnippet(id: number) {
   })
   redirect('/')
 }
+
+export async function editSnippet(id: number, code: string ){
+      await db.snippet.update({
+        where: { id },
+        data: { code }
+      })
+
+      redirect('/snippets/'+ id)
+}
